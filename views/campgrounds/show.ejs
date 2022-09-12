@@ -1,0 +1,38 @@
+<% layout('layout/boilerplate')%>
+
+<div class="row mb-3">
+	<div class="col-6 offset-3">
+		<div class="card">
+			<img src="<%= campground.image %>" alt="" class="card-img-top" />
+			<div class="card-body">
+				<h5 class="card-title"><%= campground.title %></h5>
+				<p class="card-text"><%= campground.description %></p>
+				<p class="card-text text-muted"><%= campground.location %></p>
+				<p class="card-text text-muted">$<%= campground.price %> / Night</p>
+			</div>
+
+			<div class="list-group list-group-flush">
+				<li class="list-group-item">
+					<div class="row justify-content-evenly">
+						<a
+							class="btn btn-warning col-5"
+							href="/campgrounds/<%= campground._id%>/edit"
+							>Edit Campground</a
+						>
+						<a class="btn btn-secondary col-5" href="/campgrounds">Back</a>
+					</div>
+				</li>
+
+				<form
+					action="/campgrounds/<%= campground._id%>?_method=DELETE"
+					method="post"
+				>
+					<li class="list-group-item">
+						<button class="btn btn-danger col-8 offset-2">Delete</button>
+					</li>
+				</form>
+			</div>
+			<div class="card-footer text-muted">2 days ago</div>
+		</div>
+	</div>
+</div>
